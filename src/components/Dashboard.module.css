@@ -1,0 +1,59 @@
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 32px;
+    overflow-x: hidden;
+}
+
+.header {
+    margin-bottom: 32px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.date {
+    color: var(--text-secondary);
+    font-size: 1rem;
+}
+
+.grid {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 24px;
+    width: 100%;
+    padding-right: 32px;
+}
+
+/* Scrollbar styling for the horizontal list */
+.grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.grid::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.grid::-webkit-scrollbar-thumb {
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+.grid::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-purple);
+}
+
+/* Ensure items are wide enough */
+.grid>* {
+    min-width: 350px;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}

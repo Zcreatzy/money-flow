@@ -1,0 +1,105 @@
+:root {
+  /* Cyberpunk FinTech / Premium Dark Theme */
+  --bg-primary: #050511;
+  --bg-secondary: #0a0a1f;
+  --bg-card: rgba(20, 20, 40, 0.6);
+  --bg-card-hover: rgba(30, 30, 60, 0.8);
+  
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0b0;
+  --text-accent: #00f0ff; /* Neon Cyan */
+  --text-gold: #ffd700;   /* Gold */
+  
+  --accent-cyan: #00f0ff;
+  --accent-pink: #ff0055;
+  --accent-purple: #bd00ff;
+  --accent-green: #00ff9d;
+  
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-highlight: rgba(255, 255, 255, 0.05);
+  
+  --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+  
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-primary);
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(0, 240, 255, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(189, 0, 255, 0.04) 0%, transparent 40%);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-neon {
+  color: var(--text-accent);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #ffd700 0%, #ffaa00 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-secondary);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple);
+}
+
+/* Animations */
+@keyframes coin-pulse {
+  0% { transform: scale(1); filter: brightness(1); }
+  50% { transform: scale(1.05); filter: brightness(1.2); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+
+.animate-pulse-slow {
+  animation: coin-pulse 3s infinite ease-in-out;
+}
