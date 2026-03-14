@@ -14,7 +14,11 @@ const SectorSection: React.FC<SectorSectionProps> = ({ data }) => {
                 <div className={styles.titleGroup}>
                     <div className={styles.icon}>{data.icon}</div>
                     <h2 className={styles.title} style={{ textShadow: `0 0 15px ${data.accentColor}40` }}>
-                        {data.name}
+                        {data.name.split(' ').map((part, i) => (
+                            <span key={i} className={part.match(/[\uD800-\uDBFF][\uDC00-\uDFFF]|\u200D/g) ? styles.emojiPart : styles.textPart}>
+                                {part}{i < data.name.split(' ').length - 1 ? ' ' : ''}
+                            </span>
+                        ))}
                     </h2>
                 </div>
                 <a

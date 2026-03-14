@@ -3,7 +3,7 @@ import styles from './Navbar.module.css';
 
 const Navbar: React.FC = () => {
     return (
-        <nav className={styles.nav}>
+        <nav className={`${styles.nav} glass-premium`}>
             <div className={styles.logo}>
                 <span className={styles.accent}>$</span>
                 <span className={styles.logoText}>MoneyFlow</span>

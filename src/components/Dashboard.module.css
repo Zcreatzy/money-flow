@@ -1,59 +1,59 @@
 .container {
-    max-width: 100%;
+    max-width: 1600px;
     margin: 0 auto;
-    padding: 32px;
-    overflow-x: hidden;
+    padding: 140px 40px 80px;
+    min-height: 100vh;
 }
 
 .header {
-    margin-bottom: 32px;
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-bottom: 80px;
+    text-align: center;
 }
 
 .title {
-    font-size: 2.5rem;
-    font-weight: 800;
-    margin-bottom: 8px;
-    color: var(--text-primary);
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 900;
+    letter-spacing: -3px;
+    margin-bottom: 16px;
+    line-height: 0.9;
+    background: linear-gradient(to bottom, #ffffff 30%, rgba(255, 255, 255, 0.3) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .date {
-    color: var(--text-secondary);
-    font-size: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 4px;
 }
 
 .grid {
-    display: flex;
-    gap: 24px;
-    overflow-x: auto;
-    padding-bottom: 24px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 40px;
     width: 100%;
-    padding-right: 32px;
 }
 
-/* Scrollbar styling for the horizontal list */
-.grid::-webkit-scrollbar {
-    height: 8px;
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
 }
 
-.grid::-webkit-scrollbar-track {
-    background: transparent;
-}
+@media (max-width: 768px) {
+    .container {
+        padding: 120px 24px 40px;
+    }
 
-.grid::-webkit-scrollbar-thumb {
-    background: var(--bg-secondary);
-    border-radius: 4px;
-}
+    .grid {
+        grid-template-columns: 1fr;
+    }
 
-.grid::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-purple);
-}
-
-/* Ensure items are wide enough */
-.grid>* {
-    min-width: 350px;
-    flex-shrink: 0;
-    /* Prevent shrinking */
+    .header {
+        text-align: left;
+        margin-bottom: 40px;
+    }
 }

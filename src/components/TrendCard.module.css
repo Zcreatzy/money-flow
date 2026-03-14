@@ -1,56 +1,68 @@
 .cardLink {
     display: block;
-    text-decoration: none;
-    color: inherit;
     width: 100%;
 }
 
 .card {
     display: flex;
     align-items: center;
-    padding: 12px 16px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 12px;
+    padding: 16px 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 16px;
+    transition: all 0.4s var(--ease-out-expo);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     position: relative;
     overflow: hidden;
-    transition: all 0.3s var(--ease-spring);
-    border: 1px solid transparent;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    margin-bottom: 8px;
-    cursor: pointer;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.03), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s var(--ease-out-expo);
 }
 
 .card:hover {
-    background: rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.06);
+    transform: scale(1.02);
     border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+}
+
+.card:hover::before {
+    transform: translateX(100%);
 }
 
 .rank {
-    font-size: 1.25rem;
-    font-weight: 800;
-    margin-right: 16px;
-    width: 28px;
+    font-size: 1.4rem;
+    font-weight: 900;
+    margin-right: 20px;
+    width: 32px;
     text-align: center;
-    opacity: 0.5;
-    font-family: var(--font-number);
+    color: var(--text-muted);
+    font-style: italic;
+    letter-spacing: -1px;
 }
 
 .rank1 {
-    color: #ffe600;
-    opacity: 1;
-    text-shadow: 0 0 10px rgba(255, 230, 0, 0.3);
+    color: var(--accent-gold);
+    text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+    font-size: 1.8rem;
 }
 
 .rank2 {
-    color: #c0c0c0;
-    opacity: 1;
+    color: #e0e0e0;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
 }
 
 .rank3 {
     color: #cd7f32;
-    opacity: 1;
+    text-shadow: 0 0 15px rgba(205, 127, 50, 0.2);
 }
 
 .content {
@@ -59,39 +71,44 @@
 }
 
 .keyword {
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.05rem;
+    font-weight: 600;
     margin-bottom: 4px;
+    color: #fff;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: var(--text-primary);
 }
 
 .meta {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 0.75rem;
-    color: var(--text-secondary);
+    font-size: 0.8rem;
+    color: var(--text-muted);
 }
 
 .hotScore {
     display: flex;
     align-items: center;
     gap: 4px;
+    font-weight: 700;
+    color: var(--text-secondary);
 }
 
 .change {
-    font-weight: 600;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .up {
-    color: #00ff9d;
+    color: var(--accent-green);
 }
 
 .down {
-    color: #ff3366;
+    color: var(--accent-pink);
 }
 
 .neutral {
@@ -99,11 +116,7 @@
 }
 
 .category {
-    color: var(--text-secondary);
-    font-size: 0.8rem;
-    opacity: 0.7;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 150px;
+    font-weight: 500;
+    color: var(--accent-purple);
+    opacity: 0.8;
 }
